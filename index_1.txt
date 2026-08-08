@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>নীল আকাশের নিচে - NGO</title>
+    
+    <!-- Google Fonts for Beautiful Bengali and English Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- Global Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Hind Siliguri', 'Poppins', 'Segoe UI', Tahoma, sans-serif;
+        }
+        body {
+            line-height: 1.9;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: #1a5f7a;
+            color: #fff;
+            padding: 0.8rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+        
+        /* Top-Left Title Styling in Bengali */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ffd369;
+        }
+
+        /* --- Image Banner (With Clean & 224px Logo) --- */
+        .banner-image-container {
+            position: relative;
+            width: 100%;
+            height: 70vh; /* 70% viewport height */
+            background-color: #eaeaea;
+            text-align: center;
+            overflow: hidden;
+        }
+        .banner-image-container img.banner-img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Overlay Logo: Top-Left (224px) */
+        .banner-logo-overlay {
+            position: absolute;
+            top: 25px;
+            left: 30px;
+            z-index: 10;
+        }
+        .banner-logo-overlay img {
+            height: 224px;
+            width: 224px;
+            border-radius: 50%;
+            object-fit: contain;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        .banner-logo-overlay img:hover {
+            transform: scale(1.03);
+        }
+
+        /* --- Text Below the Picture --- */
+        .hero-text-section {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 50px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .hero-text-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+            color: #1a5f7a;
+            font-weight: 700;
+        }
+        .hero-text-section p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 1.8rem auto;
+        }
+        .btn {
+            background-color: #1a5f7a;
+            color: #fff;
+            padding: 14px 35px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 6px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(26, 95, 122, 0.3);
+        }
+        .btn:hover {
+            background-color: #13465a;
+            transform: translateY(-2px);
+        }
+
+        /* --- Sections --- */
+        section {
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: #1a5f7a;
+            font-weight: 700;
+        }
+
+        /* --- About Section --- */
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+            color: #555;
+        }
+
+        /* --- Programs/Cards --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            text-align: center;
+            border-top: 5px solid #1a5f7a;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h3 {
+            margin-bottom: 15px;
+            color: #1a5f7a;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        /* --- Contact Form --- */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #444;
+        }
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            border-color: #1a5f7a;
+        }
+        .form-group textarea {
+            resize: vertical;
+            height: 120px;
+        }
+        .submit-btn {
+            background-color: #1a5f7a;
+            color: #fff;
+            border: none;
+            padding: 14px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #13465a;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #222;
+            color: #aaa;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.95rem;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            nav ul li {
+                margin: 0 10px;
+            }
+            .hero-text-section h1 {
+                font-size: 2rem;
+            }
+            .banner-logo-overlay {
+                top: 15px;
+                left: 15px;
+            }
+            .banner-logo-overlay img {
+                height: 130px;
+                width: 130px;
+                padding: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <a href="#" class="logo-container">
+            <!-- Bengali Title in Navigation -->
+            <span class="logo-text">নীল আকাশের নিচে</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Banner Image Container with Logo Positioned Top-Left -->
+    <div class="banner-image-container">
+        <!-- Logo Overlay (224px) -->
+        <div class="banner-logo-overlay">
+            <img src="file:///C:/Users/HARUN/Documents/NGO%20Website/PIC/Web%20Pic/Logo_1.png" alt="Logo">
+        </div>
+
+        <!-- Main Background Image -->
+        <img src="file:///C:/Users/HARUN/Documents/NGO%20Website/PIC/Web%20Pic/Background-pic.gif" alt="Neel Akasher Niche Community Drive" class="banner-img">
+    </div>
+
+    <!-- Text Placed Directly Under the Image -->
+    <div class="hero-text-section">
+        <h1>নীল আকাশের নিচে</h1>
+        <p>Empowering communities, driving sustainable change, and supporting vulnerable lives toward a brighter future.</p>
+        <a href="#contact" class="btn">Get Involved</a>
+    </div>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <h2 class="section-title">About Our NGO</h2>
+        <div class="about-content">
+            <p><strong>নীল আকাশের নিচে</strong> (Neel Akasher Niche) is dedicated to serving underprivileged communities. We believe every individual deserves equal opportunity, basic human rights, and the chance to build a better future regardless of their background.</p>
+        </div>
+    </section>
+
+    <!-- Programs/Initiatives Section -->
+    <section id="programs" style="background-color: #f0f4f8;">
+        <h2 class="section-title">Our Initiatives</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Clothes & Resource Drives</h3>
+                <p>Distributing essential items, clothing, and daily supplies directly to families and children in need.</p>
+            </div>
+            <div class="card">
+                <h3>Community Healthcare</h3>
+                <p>Organizing health checkup camps, spreading hygiene awareness, and offering medical assistance in local communities.</p>
+            </div>
+            <div class="card">
+                <h3>Women & Child Empowerment</h3>
+                <p>Providing basic skill development and support programs designed to foster self-reliance and education.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-form">
+            <form action="#" method="post" onsubmit="event.preventDefault(); alert('Thank you! Your message has been submitted.');">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required placeholder="your.email@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" required placeholder="How would you like to collaborate or help?"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 নীল আকাশের নিচে (Neel Akasher Niche). All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
